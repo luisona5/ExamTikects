@@ -8,7 +8,7 @@ const Details = () => {
   const { fetchDataBackend } = useFetch()
 
   const listDocente = async () => {
-    const url = `${import.meta.env.VITE_BACKEND_URL}/docente/${id}`
+    const url = `${import.meta.env.VITE_BACKEND_URL}/empleado/${id}`
     const storedUser = JSON.parse(localStorage.getItem("auth-token"))
     const headers = {
       "Content-Type": "application/json",
@@ -39,28 +39,22 @@ const Details = () => {
 
         <div>
           <ul className="list-disc pl-5">
-            <li className="text-md text-gray-00 mt-4 font-bold text-xl">Información del docente</li>
+            <li className="text-md text-gray-00 mt-4 font-bold text-xl">Información del Empleado</li>
             <ul className="pl-5">
               <li className="text-md text-gray-00 mt-2">
-                <span className="text-gray-600 font-bold">Cédula: </span>{docente?.cedulaDocente}
+                <span className="text-gray-600 font-bold">Cédula: </span>{Empleado?.cedulaEmpleado}
               </li>
               <li className="text-md text-gray-00 mt-2">
-                <span className="text-gray-600 font-bold">Nombres completos: </span>{docente?.nombreDocente}
+                <span className="text-gray-600 font-bold">Nombres completos: </span>{Empleado?.nombreEmpleado}
               </li>
+              
+              
               <li className="text-md text-gray-00 mt-2">
-                <span className="text-gray-600 font-bold">Fecha de nacimiento: {formatDate(docente?.fechaNacimientoDocente)}</span>
+                <span className="text-gray-600 font-bold">Correo: </span>{Empleado?.emailEmpleado}
               </li>
+             
               <li className="text-md text-gray-00 mt-2">
-                <span className="text-gray-600 font-bold">Oficina: </span>{docente?.oficinaDocente}
-              </li>
-              <li className="text-md text-gray-00 mt-2">
-                <span className="text-gray-600 font-bold">Correo institucional: </span>{docente?.emailDocente}
-              </li>
-              <li className="text-md text-gray-00 mt-2">
-                <span className="text-gray-600 font-bold">Correo electrónico Alternativo: </span>{docente?.emailAlternativoDocente}
-              </li>
-              <li className="text-md text-gray-00 mt-2">
-                <span className="text-gray-600 font-bold">Celular: </span>{docente?.celularDocente}
+                <span className="text-gray-600 font-bold">Celular: </span>{Empleado?.celularEmpleado}
               </li>
               <li className="text-md text-gray-00 mt-2">
                 <span className="text-gray-600 font-bold">Asignaturas impartidas por semestre: </span>
@@ -72,15 +66,13 @@ const Details = () => {
             <li className="text-md text-gray-00 mt-2">
               <span className="text-gray-600 font-bold">Estado: </span>
               <span className="bg-blue-100 text-green-500 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-                {docente?.estadoDocente && "activo"}
+                {Empleado?.estadoEmpleado && "activo"}
               </span>
             </li>
           </ul>
         </div>
 
-        <div>
-          <img src={docente?.avatarDocente} alt="docente" className='h-80 w-80 rounded-full' />
-        </div>
+        
 
       </div>
 
